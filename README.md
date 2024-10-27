@@ -1,2 +1,2 @@
-# dotfiles
-My dotfiles for Linux Fedora
+<h1 align="center">.file</h1>
+pretty cool
