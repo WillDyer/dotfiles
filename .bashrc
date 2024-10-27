@@ -33,4 +33,4 @@ unset rc
 
 neofetch
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Autodesk/maya2024/bin:$PATH"
-
+eval "$(starship init bash)"
