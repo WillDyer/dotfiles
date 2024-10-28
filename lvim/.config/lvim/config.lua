@@ -1,4 +1,5 @@
 -- PLUGINS --
+-- w
 lvim.plugins = {
      { 'nvim-telescope/telescope-ui-select.nvim' },
      { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
@@ -9,7 +10,6 @@ lvim.plugins = {
                "nvim-tree/nvim-web-devicons", -- optional, for file icons
           }
      },
-     { "mrjones2014/nvim-ts-rainbow" },
      {
           "williamboman/mason.nvim",
           config = function()
@@ -20,7 +20,7 @@ lvim.plugins = {
           "williamboman/mason-lspconfig.nvim",
           config = function()
                require("mason-lspconfig").setup({
-                    ensure_installed = { "lua_ls", "pylsp" },
+                    ensure_installed = { "lua_ls", "pyright"},
                     automatic_installation = false,
                })
           end
@@ -29,11 +29,12 @@ lvim.plugins = {
           "jay-babu/mason-null-ls.nvim",
           config = function()
                require("mason-null-ls").setup({
-                    ensure_installed = { "flake8" },
+                    ensure_installed = { "" },
                     automatic_installation = false,
                })
           end
      },
+     { "mrjones2014/nvim-ts-rainbow" },
      { "neovim/nvim-lspconfig" },
 }
 
@@ -41,12 +42,29 @@ lvim.plugins = {
 lvim.lsp.automatic_installation = false
 lvim.lsp.installer.setup.automatic_installation = false
 
+local lspconfig = require("lspconfig")
+lspconfig.pyright.setup{
+     settings = {
+          pyhton = {
+               pyhtonPath = "/usr/autodesk/maya2024/bin/mayapy",
+               analysis = {
+                    extraPaths = { "/usr/autodesk/maya2024/lib/python3.10/site-packages" },
+               },
+          },
+     },
+}
+
 local null_ls = require("null-ls")
 
 null_ls.setup({ ---@diagnostic disable-line: redundant-parameter
     sources = {
         null_ls.builtins.diagnostics.flake8,
     },
+})
+
+local linters = require("lvim.lsp.null-ls.linters")
+linters.setup({
+     { command = "flake8", filetypes = { "python" }}
 })
 
 -- SETTINGS --
