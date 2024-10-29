@@ -42,6 +42,8 @@ lvim.plugins = {
 lvim.lsp.automatic_installation = false
 lvim.lsp.installer.setup.automatic_installation = false
 
+vim.g.python3_host_prog = "/usr/autodesk/maya2024/bin/mayapy"
+
 local lspconfig = require("lspconfig")
 lspconfig.pyright.setup{
      settings = {

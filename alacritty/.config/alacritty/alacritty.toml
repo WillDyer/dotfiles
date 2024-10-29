@@ -10,6 +10,8 @@ size = 12
 [window]
 opacity = 0.75
 blur = true
+startup_mode = "Maximized"
+title = "idk what im doing"
 
 [selection]
 save_to_clipboard = true
