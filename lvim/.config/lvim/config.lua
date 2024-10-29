@@ -20,7 +20,7 @@ lvim.plugins = {
           "williamboman/mason-lspconfig.nvim",
           config = function()
                require("mason-lspconfig").setup({
-                    ensure_installed = { "lua_ls", "pyright"},
+                    ensure_installed = { "lua_ls"},
                     automatic_installation = false,
                })
           end
@@ -45,17 +45,18 @@ lvim.lsp.installer.setup.automatic_installation = false
 vim.g.python3_host_prog = "/usr/autodesk/maya2024/bin/mayapy"
 
 local lspconfig = require("lspconfig")
-lspconfig.pyright.setup{
-     settings = {
-          pyhton = {
-               pyhtonPath = "/usr/autodesk/maya2024/bin/mayapy",
-               analysis = {
-                    extraPaths = { "/usr/autodesk/maya2024/lib/python3.10/site-packages" },
-               },
-          },
-     },
-}
+--lspconfig.pyright.setup{
+--     settings = {
+--          pyhton = {
+--               pythonPath = "/usr/bin/python3.12:/usr/autodesk/maya2024/bin/mayapy",
+--               analysis = {
+--                    extraPaths = { "/usr/autodesk/maya2024/lib/python3.10/site-packages" },
+--               },
+--          },
+--     },
+--}
 
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 local null_ls = require("null-ls")
 
 null_ls.setup({ ---@diagnostic disable-line: redundant-parameter
@@ -105,6 +106,7 @@ lvim.keys.normal_mode["<C-e>"] = "$"
 lvim.keys.normal_mode["<C-b>"] = "0"
 lvim.keys.normal_mode["<C-q>"] = ":q<CR>"
 lvim.keys.normal_mode["<C-q>"] = "<C-o>:q<CR>"
+lvim.keys.insert_mode["<C-z>"] = "<Esc>ua"
 
 -- Tree toggle --
 vim.keymap.set("n", "<C-o>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
