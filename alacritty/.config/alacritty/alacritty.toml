@@ -8,7 +8,7 @@ args = ["--login"]
 size = 12
 
 [window]
-opacity = 0.75
+opacity = 0.9
 blur = true
 startup_mode = "Maximized"
 title = "idk what im doing"
