@@ -8,7 +8,7 @@ args = ["--login"]
 size = 12
 
 [window]
-opacity = 0.75
+opacity = 0.9
 blur = true
 startup_mode = "Maximized"
 title = "idk what im doing"
@@ -22,6 +22,13 @@ foreground = '#defffc'
 
 [mouse]
 hide_when_typing = true
+
+[keyboard]
+bindings = [
+     { key = "V", mods = "Control", mode = "~Vi", action = "Paste" },
+     { key = "C", mods = "Control", action = "Copy" },
+     
+]
 
 # Normal colors
 [colors.normal]
