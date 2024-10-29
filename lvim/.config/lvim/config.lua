@@ -20,7 +20,7 @@ lvim.plugins = {
           "williamboman/mason-lspconfig.nvim",
           config = function()
                require("mason-lspconfig").setup({
-                    ensure_installed = { "lua_ls"},
+                    ensure_installed = { "lua_ls" },
                     automatic_installation = false,
                })
           end
@@ -44,13 +44,17 @@ lvim.lsp.installer.setup.automatic_installation = false
 
 vim.g.python3_host_prog = "/usr/autodesk/maya2024/bin/mayapy"
 
-local lspconfig = require("lspconfig")
+--local lspconfig = require("lspconfig")
 --lspconfig.pyright.setup{
 --     settings = {
 --          pyhton = {
 --               pythonPath = "/usr/bin/python3.12:/usr/autodesk/maya2024/bin/mayapy",
 --               analysis = {
 --                    extraPaths = { "/usr/autodesk/maya2024/lib/python3.10/site-packages" },
+--                    autoImportComplettions = true,
+--                    typeCheckingMode = "off",
+--                    diagnosticMode = "workspace",
+--                    useLibaryCodeForTypes = true,
 --               },
 --          },
 --     },
