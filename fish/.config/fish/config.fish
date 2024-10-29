@@ -2,6 +2,10 @@ function fish_greeting
      colorscript -r
 end
 
+function c
+     clear
+     colorscript -r
+end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
