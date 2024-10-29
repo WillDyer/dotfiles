@@ -23,6 +23,13 @@ foreground = '#defffc'
 [mouse]
 hide_when_typing = true
 
+[keyboard]
+bindings = [
+     { key = "V", mods = "Control", mode = "~Vi", action = "Paste" },
+     { key = "C", mods = "Control", action = "Copy" },
+     
+]
+
 # Normal colors
 [colors.normal]
 black   = '#32344a'
