@@ -1,6 +1,6 @@
 # alacritty.toml
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/fish"
 args = ["--login"]
 
@@ -29,6 +29,8 @@ bindings = [
      { key = "C", mods = "Control", action = "Copy" },
      
 ]
+
+[terminal]
 
 # Normal colors
 [colors.normal]
