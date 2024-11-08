@@ -1,6 +1,6 @@
 # alacritty.toml
 
-[terminal.shell]
+[shell]
 program = "/usr/bin/fish"
 args = ["--login"]
 
