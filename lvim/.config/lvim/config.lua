@@ -36,6 +36,10 @@ lvim.plugins = {
      },
      { "mrjones2014/nvim-ts-rainbow" },
      { "neovim/nvim-lspconfig" },
+     { "petertriho/nvim-scrollbar" },
+     { "lewis6991/gitsigns.nvim" },
+     { "kevinhwang91/nvim-hlslens" },
+
 }
 
 -- LSP SETTINGS --
@@ -132,3 +136,32 @@ vim.api.nvim_create_autocmd("BufEnter", {
           end
      end
 })
+
+-- SCROLLBAR --
+require("gitsigns").setup()
+require("hlslens").setup()
+require("scrollbar").setup {
+     show = true,
+     handle = {
+          color = "#5c6370",
+          hide_if_all_visible = false,
+     },
+     marks = {
+          Search = { color = "#d19a66" },
+          Error = { color = "#e06c75" },
+          Warn = { color = "#e5c07b" },
+          Info = { color = "#56b6c2" },
+          Hint = { color = "#98c379" },
+          GitAdd = { color = "#98c379" },
+          GitChange = { color = "#e5c07b" },
+          GitDelete = { color = "#e06c75" },
+     },
+     excluded_buftypes = {"terminal"},
+     excluded_filetypes = {"NvimTree"},
+     handlers = {
+          gitsigns = true,   -- Enables integration with gitsigns
+          search = true,     -- Enables integration with nvim-hlslens
+          diagnostic = true -- disable if you get lsp errors
+     }
+}
+
