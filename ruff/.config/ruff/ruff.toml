@@ -1,0 +1,15 @@
+line-length = 1000
+
+exclude = [
+     ".git",
+     "__pycache__",
+     "tests/"
+]
+
+ignore = [
+     "E701",
+     "F405",
+     "F841",
+     "E722",
+     "E402"
+]
