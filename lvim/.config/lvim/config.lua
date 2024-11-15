@@ -76,19 +76,21 @@ vim.g.python3_host_prog = "/usr/autodesk/maya2024/bin/mayapy"
 --     },
 --}
 
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+--vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 local null_ls = require("null-ls")
 
 null_ls.setup({ ---@diagnostic disable-line: redundant-parameter
      sources = {
-        null_ls.builtins.diagnostics.flake8,
+        null_ls.builtins.diagnostics.ruff.with({
+               extra_args = { "--config", "~/.config/ruff/ruff.toml" },
+          }),
      },
 })
 
-local linters = require("lvim.lsp.null-ls.linters")
-linters.setup({
-     { command = "flake8", filetypes = { "python" }}
-})
+--local linters = require("lvim.lsp.null-ls.linters")
+--linters.setup({
+--     { command = "flake8", filetypes = { "python" }}
+--})
 
 -- SETTINGS --
 vim.opt.shell = "/bin/sh"
