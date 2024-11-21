@@ -140,7 +140,12 @@ configs.setup({
      ensure_installed = { "lua", "python" }, -- Install Lua and Python parsers
      highlight = { enable = true },         -- Enable highlighting
      indent = { enable = true },            -- Enable indentation
+     fold = { enable = true },
 })
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldenable = true
+vim.o.foldlevel = 99
 
 -- NVIMTREE --
 vim.api.nvim_create_autocmd("BufEnter", {
