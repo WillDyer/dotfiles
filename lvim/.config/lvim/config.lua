@@ -130,6 +130,8 @@ lvim.keys.normal_mode["<C-q>"] = ":q<CR>"
 lvim.keys.normal_mode["<C-q>"] = "<C-o>:q<CR>"
 lvim.keys.insert_mode["<C-z>"] = "<Esc>ua"
 lvim.keys.normal_mode["<C-t>"] = ":split | term"
+lvim.keys.normal_mode["<C-h>"] = ":split<CR>"
+lvim.keys.normal_mode["<C-j>"] = ":vsplit<CR>"
 
 -- Tree toggle --
 vim.keymap.set("n", "<C-o>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
