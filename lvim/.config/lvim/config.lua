@@ -99,7 +99,7 @@ vim.cmd("set tabstop=5")
 vim.cmd("set softtabstop=5")
 vim.cmd("set shiftwidth=5")
 vim.g.mapleader = " "
-vim.opt.clipboard = "unnamedplus"
+vim.o.clipboard = "unnamedplus"
 lvim.builtin.treesitter.rainbow.enable = true
 
 -- Colorscheme --
@@ -132,6 +132,15 @@ lvim.keys.insert_mode["<C-z>"] = "<Esc>ua"
 lvim.keys.normal_mode["<C-t>"] = ":split | term"
 lvim.keys.normal_mode["<C-h>"] = ":split<CR>"
 lvim.keys.normal_mode["<C-j>"] = ":vsplit<CR>"
+lvim.keys.normal_mode["<C-c>"] = '"+y'
+lvim.keys.visual_mode["<C-c>"] = '"+y'
+lvim.keys.insert_mode["<C-c>"] = '"+y'
+lvim.keys.normal_mode["<C-v>"] = '"+p'
+lvim.keys.insert_mode["<C-v>"] = '"+p'
+lvim.keys.normal_mode["<C-a>"] = "ggVG"
+lvim.keys.visual_mode["<C-a>"] = "<Esc>ggVG"
+lvim.keys.insert_mode["<C-a>"] = "<Esc>ggVG"
+
 
 -- Tree toggle --
 vim.keymap.set("n", "<C-o>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
