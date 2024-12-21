@@ -11,6 +11,12 @@ lvim.plugins = {
           }
      },
      {
+          "jiaoshijie/undotree",
+          dependencies = "nvim-lua/plenary.nvim",
+          config = true,
+          keys = { { "<C-t>", "<cmd>lua require('undotree).toggle()<cr>" } },
+     },
+     {
           "williamboman/mason.nvim",
           config = function()
                require("mason").setup()
@@ -57,24 +63,7 @@ lvim.plugins = {
 -- LSP SETTINGS --
 lvim.lsp.automatic_installation = false
 lvim.lsp.installer.setup.automatic_installation = false
-
 vim.g.python3_host_prog = "/usr/autodesk/maya2024/bin/mayapy"
-
---local lspconfig = require("lspconfig")
---lspconfig.pyright.setup{
---     settings = {
---          pyhton = {
---               pythonPath = "/usr/bin/python3.12:/usr/autodesk/maya2024/bin/mayapy",
---               analysis = {
---                    extraPaths = { "/usr/autodesk/maya2024/lib/python3.10/site-packages" },
---                    autoImportComplettions = true,
---                    typeCheckingMode = "off",
---                    diagnosticMode = "workspace",
---                    useLibaryCodeForTypes = true,
---               },
---          },
---     },
---}
 
 --vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 local null_ls = require("null-ls")
@@ -87,10 +76,6 @@ null_ls.setup({ ---@diagnostic disable-line: redundant-parameter
      },
 })
 
---local linters = require("lvim.lsp.null-ls.linters")
---linters.setup({
---     { command = "flake8", filetypes = { "python" }}
---})
 
 -- SETTINGS --
 vim.opt.shell = "/bin/sh"
@@ -113,30 +98,27 @@ vim.keymap.set('n', '<C-f>', builtin.live_grep, { desc = 'Telescope live grep' }
 lvim.lsp.automatic_configuration.skipped_servers = { "pyright" }
 
 -- KEYBINDS --
-vim.keymap.set("n", "<C-c>", '"+y')
-vim.keymap.set("v", "<C-c>", '"+y')
-vim.keymap.set("n", "<C-v>", '"+p')
-vim.keymap.set("i", "<C-v>", '<C-r>+')
-vim.keymap.set('i', '<C-a>', '<Esc>ggVG<CR>a', { noremap = true, silent = true })
+vim.keymap.set('v', '<C-y>', '"+y', { noremap = true, silent = true }) -- Copy to system clipboard
+vim.keymap.set('v', '<C-x>', '"+d', { noremap = true, silent = true }) -- Cut to system clipboard
+vim.keymap.set('n', '<C-v>', '"+p', { noremap = true, silent = true }) -- Paste from system clipboard
 
 vim.api.nvim_set_keymap('v', '<C-a>', '<Esc>ggVG', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-s>', '<C-o>:w<CR>', { noremap = true, silent = true })
 
-lvim.keys.normal_mode["<C-u>"] = "<C-r>"
+-- lvim.keys.normal_mode["<C-u>"] = "<C-r>"
 lvim.keys.normal_mode["<C-e>"] = "$"
-lvim.keys.normal_mode["<C-b>"] = "0"
-lvim.keys.normal_mode["<C-q>"] = ":q<CR>"
-lvim.keys.normal_mode["<C-q>"] = "<C-o>:q<CR>"
+-- lvim.keys.normal_mode["<C-b>"] = "0"
+lvim.keys.normal_mode["<C-q>"] = ":q<CR>" -- save and quit
+lvim.keys.normal_mode["<C-q>"] = "<C-o>:q<CR>" -- save and quit
 lvim.keys.insert_mode["<C-z>"] = "<Esc>ua"
-lvim.keys.normal_mode["<C-t>"] = ":split | term"
+-- lvim.keys.normal_mode["<C-t>"] = ":split | term"
+
+-- split lvim windows
 lvim.keys.normal_mode["<C-h>"] = ":split<CR>"
 lvim.keys.normal_mode["<C-j>"] = ":vsplit<CR>"
-lvim.keys.normal_mode["<C-c>"] = '"+y'
-lvim.keys.visual_mode["<C-c>"] = '"+y'
-lvim.keys.insert_mode["<C-c>"] = '"+y'
-lvim.keys.normal_mode["<C-v>"] = '"+p'
-lvim.keys.insert_mode["<C-v>"] = '"+p'
+
+-- select all
 lvim.keys.normal_mode["<C-a>"] = "ggVG"
 lvim.keys.visual_mode["<C-a>"] = "<Esc>ggVG"
 lvim.keys.insert_mode["<C-a>"] = "<Esc>ggVG"
