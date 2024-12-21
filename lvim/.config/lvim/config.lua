@@ -107,8 +107,8 @@ vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('i', '<C-s>', '<C-o>:w<CR>', { noremap = true, silent = true })
 
 -- lvim.keys.normal_mode["<C-u>"] = "<C-r>"
-lvim.keys.normal_mode["<C-e>"] = "$"
--- lvim.keys.normal_mode["<C-b>"] = "0"
+lvim.keys.normal_mode["<C-e>"] = "$" -- end of line
+lvim.keys.normal_mode["<C-b>"] = "0" -- beginning of line
 lvim.keys.normal_mode["<C-q>"] = ":q<CR>" -- save and quit
 lvim.keys.normal_mode["<C-q>"] = "<C-o>:q<CR>" -- save and quit
 lvim.keys.insert_mode["<C-z>"] = "<Esc>ua"
