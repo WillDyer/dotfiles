@@ -19,3 +19,7 @@ alias maya-modular-rigging="lvim /home/will/maya/scripts/maya_modular_rigging/ma
 alias maya-usd-export="lvim /home/will/maya/scripts/maya_usd_export/main.py"
 alias wd-tools="lvim /home/will/maya/scripts/wd-tools/main.py"
 alias maya-anim-tools="lvim /home/will/maya/scripts/maya_anim_tools/README.md"
+
+alias dotfiles="cd /home/will/dotfiles/"
+
+alias mount="sudo mount -t cifs //monster.herts.ac.uk/projects/all_work /twelvefold/ -o username=wd22aaa@herts.ac.uk,rw,uid=1000,gid=1000,file_mode=0770,dir_mode=0770"
